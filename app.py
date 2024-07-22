@@ -61,5 +61,5 @@ if st.button('Generate Post Content'):
         st.write(post_text)
 
     with st.spinner('Generating Thumbnail...'):
-        thumbnail_url = generate_image(user_input)  # Consider adjusting the prompt for image generation if needed
+        thumbnail_url = generate_image(f"Please generate an image of Cicero explaing this topic: {user_input}")  # Consider adjusting the prompt for image generation if needed
         st.image(thumbnail_url, caption='Generated Thumbnail')
