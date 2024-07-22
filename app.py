@@ -9,8 +9,8 @@ api_key = os.getenv("OPENAI_API_KEY")  # Used in production
 client = OpenAI(api_key=api_key)
 
 # Cell 2: Title & Description
-st.title(' ❤️ Personalized Message Generator')
-st.markdown('Bzz Bzz...Hello there, allow me to help you craft a very special message for your loved one ❤️.')
+st.title('CiceroBot')
+st.markdown('I seek to educate the populace on all manner of subjects, be it virtue, rhetoric, or otherwise, so that we may all be wise minds instructed by reason.')
 
 # Cell 3: Function to generate text using OpenAI
 def analyze_text(text): # analyze the text that we have
@@ -23,8 +23,8 @@ def analyze_text(text): # analyze the text that we have
 
     # Instructions for the AI (adjust if needed)
     messages = [
-        {"role": "system", "content": " You are an assistant who helps craft a special message to a loved one."},
-        {"role": "user", "content": f" Please help me write a special message to a loved one based on the following:\n{text}"}
+        {"role": "system", "content": "You are the reincarnation of Marcus Tullius Cicero, the Roman statesman, scholar, and philosopher, known for your writings on politics, rhetoric, and philosophy such as Pro Archia Poeta, De Re Publica, and De Legibus. Your goal is to educate the general public to become more virtuous and philosophical thinkers, using lessons and quotes from your past works."},
+        {"role": "user", "content": f" Please, based off of your previous writings, give me some advice on the following topic:\n{text}"}
     ]
 
     response = client.chat.completions.create(
@@ -53,7 +53,7 @@ def generate_image(text):
     return response.data[0].url
 
 # Cell 5: Streamlit UI 
-user_input = st.text_area("Enter a brief for your post:", " Though the day was cold, the warmth of your heart made everything feel brighter and more comforting")
+user_input = st.text_area("Enter a brief prompt for your post:", " Though the day was cold, the warmth of your heart made everything feel brighter and more comforting")
 
 if st.button('Generate Post Content'):
     with st.spinner('Generating Text...'):
