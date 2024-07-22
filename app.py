@@ -53,7 +53,7 @@ def generate_image(text):
     return response.data[0].url
 
 # Cell 5: Streamlit UI 
-user_input = st.text_area("Enter a brief prompt for your post:", " Though the day was cold, the warmth of your heart made everything feel brighter and more comforting")
+user_input = st.text_area("Choose a topic for Cicero to give you advice on:", "How can I become more virtuous?")
 
 if st.button('Generate Post Content'):
     with st.spinner('Generating Text...'):
